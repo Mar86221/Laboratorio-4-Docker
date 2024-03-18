@@ -48,7 +48,6 @@
 </ul>
 </li>
 <li></li>
-<li></li>
 <li><a href="#a-name_qar28tjq455iacreación-de-una-web-demo-en-docker">Creación de una web-demo en Docker</a></li>
 </ul>
 
@@ -182,300 +181,135 @@
 <p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.025.png" alt=""></p>
 <h1 id="a-name_6pc8vy3nzmkzainstalación-de-docker"><a></a><strong>Instalación de Docker</strong></h1>
 <h3 id="a-name_s0zjaze7dl9gaactualizar-base-de-datos-de-paquetes"><a></a><strong>Actualizar base de datos de paquetes</strong></h3>
-<pre><code>
-sudo apt update
-
+<pre><code>sudo apt update
 </code></pre>
 <p>A continuación, instale algunos paquetes de requisitos previos que permitan a apt usar paquetes a través de HTTPS:</p>
-<pre><code>
-sudo apt install apt-transport-https ca-certificates curl software-properties-common
-
+<pre><code>sudo apt install apt-transport-https ca-certificates curl software-properties-common
 </code></pre>
 <p>Luego, añada la clave de GPG para el repositorio oficial de Docker en su sistema:</p>
-<pre><code>
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-
+<pre><code>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
 </code></pre>
 <p>Agregue el repositorio de Docker a las fuentes de APT:</p>
-<pre><code>
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
-
+<pre><code>sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
 </code></pre>
 <p>A continuación, actualice el paquete de base de datos con los paquetes de Docker del repositorio recién agregado:</p>
-<pre><code>
-sudo apt update
-
+<pre><code>sudo apt update
 </code></pre>
 <p>Asegúrese de estar a punto de realizar la instalación desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu:</p>
-<pre><code>
-apt-cache policy docker-ce
-
+<pre><code>apt-cache policy docker-ce
 </code></pre>
-<pre><code>
-sudo apt install docker-ce
-
+<pre><code>sudo apt install docker-ce
 </code></pre>
 <p>Con esto, Docker quedará instalado, compruebe que funcione:</p>
-<pre><code>
-sudo systemctl status docker
-
+<pre><code>sudo systemctl status docker
 </code></pre>
 <h1 id="section-5"></h1>
 <h3 id="a-name_4u66lkwllsqvainstalar-docker-compose"><a></a><strong>Instalar Docker Compose</strong></h3>
 <p>El siguiente comando descargará la 1.29.2 versión y guardará el archivo ejecutable en /usr/local/bin/docker-compose, lo que hará que este software sea accesible globalmente como docker-compose:</p>
-<pre><code>
-sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
-
+<pre><code>sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 </code></pre>
 <p>A continuación, establezca los permisos correctos para que el comando docker-compose sea ejecutable:</p>
-<pre><code>
-sudo chmod +x /usr/local/bin/docker-compose
-
+<pre><code>sudo chmod +x /usr/local/bin/docker-compose
 </code></pre>
 <p>Para verificar que la instalación fue exitosa, puede ejecutar:</p>
-<pre><code>
-docker-compose --version
-
+<pre><code>docker-compose --version
 </code></pre>
 <h1 id="section-6"></h1>
 <h3 id="a-name_j2nuu2p44hdtareiniciar-la-máquina"><a></a><strong>Reiniciar la máquina</strong></h3>
 <p>Para que algunos de los servicios que acabamos de instalar funcionen correctamente, debemos reiniciar nuestra máquina virtual, luego de este paso, deberemos iniciar sesión denuevo en nuestra máquina virtual eso hará que se cierre la sesión en nuestra cmd, entonces iniciaremos sesión el VMware y luego restableceremos la conexión ssh</p>
-<pre><code>
-sudo reboot now
-
+<pre><code>sudo reboot now
 </code></pre>
 <h3 id="a-name_skgi2287t9craverificar-la-versión-de-docker"><a></a><strong>Verificar la versión de Docker</strong></h3>
-<pre><code>
-docker version
-
+<pre><code>docker version
 </code></pre>
 <h1 id="section-7"></h1>
-<h1 id="section-8"></h1>
 <h1 id="a-name_qar28tjq455iacreación-de-una-web-demo-en-docker"><a></a><strong>Creación de una web-demo en Docker</strong></h1>
 <p>creamos un directorio</p>
-<pre><code>
-mkdir docker-web-demo
-
-  
-
+<pre><code>mkdir docker-web-demo
+ 
 cd docker-web-demo
-
 </code></pre>
 <p>luego crearemos un archivo index.html</p>
-<pre><code>
-&lt;!DOCTYPE html&gt;
-
-  
+<pre><code>&lt;!DOCTYPE html&gt;
 
 &lt;html&gt;
 
-  
+	&lt;head&gt;
+		&lt;title&gt;Docker Web Demo&lt;/title&gt;
+	&lt;/head&gt;
 
-` `&lt;head&gt;
+&lt;body&gt;
+	&lt;h1&gt;Insertar aqui&lt;/h1&gt;
+	
+	&lt;div&gt;
+		&lt;label for="input-text"&gt;Nombre:&lt;/label&gt;
+		&lt;input type="text" id="input-text" /&gt;
+		&lt;button id="add-button"&gt;Agregar&lt;/button&gt;
+	&lt;/div&gt;
 
-  
+	&lt;div id="notifications"&gt;&lt;/div&gt;
 
-` `&lt;title&gt;Docker Web Demo&lt;/title&gt;
+			&lt;script&gt;
 
-  
-
-` `&lt;/head&gt;
-
-  
-
-` `&lt;body&gt;
-
-  
-
-` `&lt;h1&gt;Insertar aqui&lt;/h1&gt;
-
-  
-
-` `&lt;div&gt;
+				const inputText = document.getElementById('input-text');
+				const addButton = document.getElementById('add-button');
+				const notificationsDiv = document.getElementById('notifications');
 
   
 
-` `&lt;label for="input-text"&gt;Nombre:&lt;/label&gt;
+				addButton.addEventListener('click', () =&gt; {
 
-  
+					const newText = document.createTextNode(inputText.value);
+					const newNotification = document.createElement('p');
+					newNotification.appendChild(newText);
+					notificationsDiv.appendChild(newNotification);
+					inputText.value = ''; // Limpiar el campo de texto
 
-` `&lt;input type="text" id="input-text" /&gt;
+				});
 
-  
+			&lt;/script&gt;
 
-` `&lt;button id="add-button"&gt;Agregar&lt;/button&gt;
+		&lt;/body&gt;
 
-  
-
-` `&lt;/div&gt;
-
-  
-
-` `&lt;div id="notifications"&gt;&lt;/div&gt;
-
-  
-
-` `&lt;script&gt;
-
-  
-
-` `const inputText = document.getElementById('input-text');
-
-  
-
-` `const addButton = document.getElementById('add-button');
-
-  
-
-` `const notificationsDiv = document.getElementById('notifications');
-
-  
-
-` `addButton.addEventListener('click', () =&gt; {
-
-  
-
-` `const newText = document.createTextNode(inputText.value);
-
-  
-
-` `const newNotification = document.createElement('p');
-
-  
-
-` `newNotification.appendChild(newText);
-
-  
-
-` `notificationsDiv.appendChild(newNotification);
-
-  
-
-` `inputText.value = ''; // Limpiar el campo de texto
-
-  
-
-` `});
-
-  
-
-` `&lt;/script&gt;
-
-  
-
-` `&lt;/body&gt;
-
-  
-
-&lt;/html&gt;
-
+	&lt;/html&gt;
 </code></pre>
 <p>ahora crearemos un Dockerfile en el mismo directorio que index.html, es este se encontrará las instrucciones necesarias para construir una imagen de Docker</p>
-<pre><code>
-\# Usamos una versión de Node.js
-
-  
-
+<pre><code>\# Usamos una versión de Node.js
 FROM node:14
 
-  
-
 \# Seteamos el directorio donde trabajara /app
-
-  
-
 WORKDIR /app
 
-  
-
 \# Copiamos el contenido del directorio en /app
-
-  
-
 COPY . /app
 
-  
-
 \# Instalar los paquetes de package.json
-
-  
-
 RUN npm install
 
-  
-
 \# Abrimos el acceso del puerto 80
-
-  
-
 EXPOSE 80
 
-  
-
 \# Ejecutamos la app cuando se levante el contenedor
-
-  
-
 CMD ["npm", "start"]
-
 </code></pre>
 <p>de igual manera crearemos un archivo package.json. Este se encargará de contener todas las dependencias y scripts necesarios para nuestra web-demo</p>
-<pre><code>
-{
-
-  
-
-` `"name": "docker-web-demo",
-
-  
-
-` `"version": "1.0.0",
-
-  
-
-` `"description": "web page demo for Docker",
-
-  
-
-` `"main": "index.html",
-
-  
-
-` `"scripts": {
-
-  
-
-` `"start": "npx serve -s -l 80"
-
-  
-
-` `},
-
-  
-
-` `"dependencies": {
-
-  
-
-` `"serve": "^13.0.2"
-
-  
-
-` `}
-
-  
-
+<pre><code>{
+"name": "docker-web-demo",
+"version": "1.0.0",
+"description": "web page demo for Docker",
+"main": "index.html",
+"scripts": {
+"start": "npx serve -s -l 80"
+},
+"dependencies": {
+"serve": "^13.0.2"
 }
-
+}
 </code></pre>
 <p>construiremos la imagen de Docker y levantaremos el contenedor (insertar primero uno y luego el otro). Una pagina que puede ser util cuando hablamos de contenedores puede ser: <a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
-<pre><code>
-sudo docker build -t docker-web-demo .
-
+<pre><code>sudo docker build -t docker-web-demo .
 </code></pre>
-<pre><code>
-sudo docker run -d -p 80:80 docker-web-demo
-
+<pre><code>sudo docker run -d -p 80:80 docker-web-demo
 </code></pre>
 <p>Una vez hecho todos esto pasos deberíamos ser capaces de acceder a nuestra página web, en ciertas condiciones podemos acceder a este en el navegador web con <code>https://localhost</code> , sin embargo en estos casos que es una máquina virtual sin interfaz gráfica deberemos acceder con <code>https://&lt;ip_de_la_maquina_virtual&gt;</code></p>
 <p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.026.png" alt=""></p>

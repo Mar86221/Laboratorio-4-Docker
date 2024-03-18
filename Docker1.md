@@ -80,23 +80,14 @@ Sirven para enlazar contenedores entre sí, que están dentro de una misma máqu
 ## <a name="_g3mkk6l6a75m"></a>**Comandos básicos de Docker**
 
   
-
-|Comando|Definición|
-
-| :- | :- |
-
-|**sudo docker ps - a**|Este comando se utiliza para ver todos los contenedores en ejecución actualmente.|
-
-|**sudo docker images**|Este comando se utiliza para ver todas las imágenes de Docker disponibles en el sistema.|
-
-|**sudo docker rm**|Este comando se utiliza para eliminar un contenedor que ya no se necesita. Por ejemplo, docker rm my\_container eliminará el contenedor llamado “my\_container”.|
-
-|**sudo docker build**|<p>Este comando se utiliza para construir una imagen personalizada a partir de un archivo Dockerfile..</p><p></p>|
-
+|Comando|Definicion  |
+|--|--|
+| **sudo docker ps - a** | Este comando se utiliza para ver todos los contenedores en ejecución actualmente. |
+| **sudo docker images** | Este comando se utiliza para ver todas las imágenes de Docker disponibles en el sistema. |
+| **sudo docker rm** | Este comando se utiliza para eliminar un contenedor que ya no se necesita. Por ejemplo, docker rm my\_container eliminará el contenedor llamado “my\_container”. |
+|**sudo docker build**|Este comando se utiliza para construir una imagen personalizada a partir de un archivo Dockerfile.|
 |**sudo docker exec**|Este comando se utiliza para ejecutar un comando dentro de un contenedor en ejecución. Por ejemplo, docker exec my\_container ls -l ejecutará el comando “ls -l” dentro del contenedor llamado “my\_container”.|
-
 |**sudo docker-compose**|Este comando se utiliza para orquestar múltiples contenedores y sus dependencias en un entorno de aplicación más grande.|
-
 |**sudo docker logs**|Este comando se utiliza para ver los registros de un contenedor. Puede ver los registros de un contenedor específico utilizando su ID o su nombre.|
 
   

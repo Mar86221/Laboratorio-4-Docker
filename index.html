@@ -1,0 +1,458 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome file</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__left">
+    <div class="stackedit__toc">
+      
+<ul>
+<li><a href="#a-name_an3iuyhamuijauniversidad-centroamericana-josé-simeón-cañas">Universidad Centroamericana José Simeón Cañas</a></li>
+<li></li>
+<li><a href="#a-name_ynzxo6dwj93yaa-name_3npbchbhyycoaciclo-012024-laboratorio-entornos-de-desarrollo-web-con-docker.">Ciclo 01/2024, Laboratorio: Entornos de desarrollo web con Docker.</a>
+<ul>
+<li></li>
+<li><a href="#a-name_f9gbxv73pqyja¿qué-es-docker">¿Qué es Docker?</a></li>
+<li><a href="#a-name_1oo0ntz3mlw1aconceptos-básicos">Conceptos básicos</a></li>
+<li><a href="#a-name_d5vd88qpsmlua¿para-qué-nos-sirve-docker">¿Para qué nos sirve Docker?</a></li>
+<li><a href="#a-name_g3mkk6l6a75macomandos-básicos-de-docker">Comandos básicos de Docker</a></li>
+</ul>
+</li>
+<li></li>
+<li></li>
+<li><a href="#a-name_kw00toz0xrflaa-name_k05p44uzmi66aa-name_4nme9m9fgsdhacreación-de-la-máquina-virtual">Creación de la máquina virtual</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li><a href="#a-name_d3f1bny3to59auso-de-ssh">Uso de SSH</a></li>
+<li><a href="#a-name_6pc8vy3nzmkzainstalación-de-docker">Instalación de Docker</a>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li>
+<ul>
+<li></li>
+</ul>
+</li>
+<li></li>
+<li></li>
+<li><a href="#a-name_qar28tjq455iacreación-de-una-web-demo-en-docker">Creación de una web-demo en Docker</a></li>
+</ul>
+
+    </div>
+  </div>
+  <div class="stackedit__right">
+    <div class="stackedit__html">
+      <h1 id="a-name_an3iuyhamuijauniversidad-centroamericana-josé-simeón-cañas"><a></a><strong>Universidad Centroamericana José Simeón Cañas</strong></h1>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.001.png" alt=""></p>
+<h1 id="section"></h1>
+<h1 id="a-name_ynzxo6dwj93yaa-name_3npbchbhyycoaciclo-012024-laboratorio-entornos-de-desarrollo-web-con-docker."><a></a><a></a><strong>Ciclo 01/2024, Laboratorio: Entornos de desarrollo web con Docker.</strong></h1>
+<h3 id="a-name_222lste8cqqvacatedrática-elisa-aldana"><a></a><strong>Catedrática: Elisa Aldana</strong></h3>
+<h3 id="a-name_87cf60580t2da2024-antiguo-cuscatlan"><a></a><strong>2024, Antiguo Cuscatlan</strong></h3>
+<h2 id="a-name_f9gbxv73pqyja¿qué-es-docker"><a></a>¿Qué es Docker?</h2>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.002.png" alt=""></p>
+<p>Docker es una plataforma de software que permite crear, probar e implementar aplicaciones rápidamente. Docker empaqueta software en unidades estandarizadas llamadas contenedores que incluyen todo lo necesario para que el software se ejecute, incluidas bibliotecas, herramientas de sistema, código y tiempo de ejecución. Con Docker, puede implementar y ajustar la escala de aplicaciones rápidamente en cualquier entorno con la certeza de saber que su código se ejecutará.</p>
+<h2 id="a-name_1oo0ntz3mlw1aconceptos-básicos"><a></a><strong>Conceptos básicos</strong></h2>
+<p><strong>Imágenes</strong></p>
+<p>Una imagen es una especie de plantilla, una captura del estado de un contenedor. Se podría decir que una imagen de un contenedor es como un snapshot de una máquina virtual, pero mucho mucho más ligero. Por ejemplo una imagen podría contener un sistema operativo Ubuntu con un servidor Apache y tu aplicación web instalada. Las imágenes se utilizan para crear contenedores, y nunca cambian.</p>
+<p><strong>DockerFile</strong></p>
+<p>Es un archivo de configuración que se utiliza para crear imágenes. En dicho archivo se indica qué es lo que queremos que tenga la imagen, y los distintos comandos para instalar las herramientas.</p>
+<p><strong>Containers</strong></p>
+<p>Un contenedor de Docker es una instancia en ejecución de una imagen de Docker. Sin embargo, a diferencia de la virtualización tradicional con un hipervisor de tipo 1 o tipo 2, un contenedor de Docker se ejecuta en el núcleo del sistema operativo host.</p>
+<p><strong>Volúmenes</strong></p>
+<p>No es una buena práctica guardar los datos persistentes dentro de un contenedor de Docker. Para eso están los volúmenes, fuera de los contenedores. Así se puede crear y borrar contenedores sin preocuparse por que se borren los datos.</p>
+<p>Además los volúmenes se utilizan para compartir datos entre contenedores.</p>
+<p><strong>Links</strong></p>
+<p>Sirven para enlazar contenedores entre sí, que están dentro de una misma máquina, sin exponer a los contenedores cuáles son los datos de la máquina que los contiene.</p>
+<h2 id="a-name_d5vd88qpsmlua¿para-qué-nos-sirve-docker"><a></a><strong>¿Para qué nos sirve Docker?</strong></h2>
+<p><strong>Desarrollo y pruebas de aplicaciones:</strong> Docker proporciona entornos de desarrollo consistentes y reproducibles, simplificando el proceso de desarrollo y prueba de aplicaciones.</p>
+<p><strong>Despliegue de aplicaciones:</strong> Docker facilita el despliegue rápido y eficiente de aplicaciones en diferentes entornos, desde servidores locales hasta la nube.</p>
+<p><strong>Microservicios y arquitecturas distribuidas:</strong> Docker es popular para empaquetar servicios como contenedores independientes, lo que simplifica la gestión y escalabilidad de sistemas distribuidos, especialmente cuando se combina con herramientas de orquestación como Kubernetes.</p>
+<h2 id="a-name_g3mkk6l6a75macomandos-básicos-de-docker"><a></a><strong>Comandos básicos de Docker</strong></h2>
+<p>|Comando|Definición|</p>
+<p>| :- | :- |</p>
+<p>|<strong>sudo docker ps - a</strong>|Este comando se utiliza para ver todos los contenedores en ejecución actualmente.|</p>
+<p>|<strong>sudo docker images</strong>|Este comando se utiliza para ver todas las imágenes de Docker disponibles en el sistema.|</p>
+<p>|<strong>sudo docker rm</strong>|Este comando se utiliza para eliminar un contenedor que ya no se necesita. Por ejemplo, docker rm my_container eliminará el contenedor llamado “my_container”.|</p>
+<p>|<strong>sudo docker build</strong>|</p><p>Este comando se utiliza para construir una imagen personalizada a partir de un archivo Dockerfile…</p><p></p>|
+<p>|<strong>sudo docker exec</strong>|Este comando se utiliza para ejecutar un comando dentro de un contenedor en ejecución. Por ejemplo, docker exec my_container ls -l ejecutará el comando “ls -l” dentro del contenedor llamado “my_container”.|</p>
+<p>|<strong>sudo docker-compose</strong>|Este comando se utiliza para orquestar múltiples contenedores y sus dependencias en un entorno de aplicación más grande.|</p>
+<p>|<strong>sudo docker logs</strong>|Este comando se utiliza para ver los registros de un contenedor. Puede ver los registros de un contenedor específico utilizando su ID o su nombre.|</p>
+<h1 id="section-1"></h1>
+<h1 id="section-2"></h1>
+<h1 id="a-name_kw00toz0xrflaa-name_k05p44uzmi66aa-name_4nme9m9fgsdhacreación-de-la-máquina-virtual"><a></a><a></a><a></a><strong>Creación de la máquina virtual</strong></h1>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.003.png" alt=""></p>
+<p>Empezaremos creando una máquina virtual usando VMware (programa que te permite crear y usar varias computadoras virtuales en una sola computadora real)</p>
+<p>Abrimos VMware y creamos una nueva máquina virtual</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.004.png" alt=""></p>
+<p>click en instaler disk image iso, y en browser buscamos nuestra imagen iso, alojada en el escritorio (En nuestro caso será la de ubuntu server)</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.005.png" alt=""></p>
+<p>pondremos “uca” como nombre y usuario y “12345” como contraseña</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.006.png" alt=""></p>
+<p>dejamos el nombre por defecto</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.007.png" alt=""></p>
+<p>tamaño por defecto(20GB)</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.008.png" alt=""></p>
+<p>una vez configurado todo deberíamos tener una información de nuestra MV asi</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.009.png" alt=""></p>
+<p>Al dar “Finish” se iniciara la imagen de Ubuntu Server y comenzará la instalación de esta en nuestra “Computadora virtual”</p>
+<h3 id="section-3"></h3>
+<h3 id="section-4"></h3>
+<h3 id="a-name_hsphortsz2q9aa-name_mkaku9z2xsesaa-name_y42j87fb2lv7aconfiguración-de-la-máquina-virtual"><a></a><a></a><a></a><strong>Configuración de la máquina virtual</strong></h3>
+<p>Seleccionamos el idioma inglés</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.010.png" alt=""></p>
+<p>daremos click en “Continue without updating” (esto es así por cuestiones de tiempo)</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.011.png" alt=""></p>
+<p>click en “Done”, dejaremos el teclado en ingles</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.012.png" alt=""></p>
+<p>anotamos la ip que se asigna en nuestra instalación, luego de eso continuaremos dando click en “Done”</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.013.png" alt=""></p>
+<p>dejamos en blanco el proxy address</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.014.png" alt=""></p>
+<p>cambiamos SV por CO, esto debido a que utilizaremos el servidor de colombia</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.015.png" alt=""></p>
+<p>nos aseguramos que esten marcadas estas opciones</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.016.png" alt=""></p>
+<p>luego le daremos click en “Done”</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.017.png" alt=""></p>
+<p>click en “Continue”</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.018.png" alt=""></p>
+<p>Para efectos prácticos, llenaremos este formulario con los siguientes datos</p>
+<p>Name: uca</p>
+<p>server name: uca</p>
+<p>username: uca</p>
+<p>password: 12345</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.019.png" alt=""></p>
+<p>instalaremos OpenSSH (Secure Shell, que proporciona una forma segura de acceder a sistemas remotos y transferir datos de forma cifrada sobre una red). Este lo utilizaremos cuando ya haya finalizado la instalación.</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.020.png" alt=""></p>
+<p>marcamos únicamente la opción de docker, con un espacio</p>
+<p>Otra forma de hacerlo es no marcando la opcion y siguiendo una instalación limpia desde documentacion como: <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04">https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04</a></p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.021.png" alt=""></p>
+<p>comienza la actualización, esto tomará unos minutos,esperaremos hasta que nos dé la opcion de “Reboot Now”</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.022.png" alt=""></p>
+<p>si al iniciar la máquina muestra este error, solo debemos de dar enter y acceder con nuestras credenciales</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.023.png" alt=""></p>
+<h1 id="a-name_d3f1bny3to59auso-de-ssh"><a></a><strong>Uso de SSH</strong></h1>
+<p>Antes de continuar con la instalación de Docker usaremos la cmd de windows para mayor practicidad, para eso anotamos previamente la dirección IP</p>
+<p>abrimos cmd y escribimos lo siguiente ssh @</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.024.png" alt=""></p>
+<p>ahora ya estamos listos para continuar</p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.025.png" alt=""></p>
+<h1 id="a-name_6pc8vy3nzmkzainstalación-de-docker"><a></a><strong>Instalación de Docker</strong></h1>
+<h3 id="a-name_s0zjaze7dl9gaactualizar-base-de-datos-de-paquetes"><a></a><strong>Actualizar base de datos de paquetes</strong></h3>
+<pre><code>
+sudo apt update
+
+</code></pre>
+<p>A continuación, instale algunos paquetes de requisitos previos que permitan a apt usar paquetes a través de HTTPS:</p>
+<pre><code>
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+
+</code></pre>
+<p>Luego, añada la clave de GPG para el repositorio oficial de Docker en su sistema:</p>
+<pre><code>
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+</code></pre>
+<p>Agregue el repositorio de Docker a las fuentes de APT:</p>
+<pre><code>
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+
+</code></pre>
+<p>A continuación, actualice el paquete de base de datos con los paquetes de Docker del repositorio recién agregado:</p>
+<pre><code>
+sudo apt update
+
+</code></pre>
+<p>Asegúrese de estar a punto de realizar la instalación desde el repositorio de Docker en lugar del repositorio predeterminado de Ubuntu:</p>
+<pre><code>
+apt-cache policy docker-ce
+
+</code></pre>
+<pre><code>
+sudo apt install docker-ce
+
+</code></pre>
+<p>Con esto, Docker quedará instalado, compruebe que funcione:</p>
+<pre><code>
+sudo systemctl status docker
+
+</code></pre>
+<h1 id="section-5"></h1>
+<h3 id="a-name_4u66lkwllsqvainstalar-docker-compose"><a></a><strong>Instalar Docker Compose</strong></h3>
+<p>El siguiente comando descargará la 1.29.2 versión y guardará el archivo ejecutable en /usr/local/bin/docker-compose, lo que hará que este software sea accesible globalmente como docker-compose:</p>
+<pre><code>
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+</code></pre>
+<p>A continuación, establezca los permisos correctos para que el comando docker-compose sea ejecutable:</p>
+<pre><code>
+sudo chmod +x /usr/local/bin/docker-compose
+
+</code></pre>
+<p>Para verificar que la instalación fue exitosa, puede ejecutar:</p>
+<pre><code>
+docker-compose --version
+
+</code></pre>
+<h1 id="section-6"></h1>
+<h3 id="a-name_j2nuu2p44hdtareiniciar-la-máquina"><a></a><strong>Reiniciar la máquina</strong></h3>
+<p>Para que algunos de los servicios que acabamos de instalar funcionen correctamente, debemos reiniciar nuestra máquina virtual, luego de este paso, deberemos iniciar sesión denuevo en nuestra máquina virtual eso hará que se cierre la sesión en nuestra cmd, entonces iniciaremos sesión el VMware y luego restableceremos la conexión ssh</p>
+<pre><code>
+sudo reboot now
+
+</code></pre>
+<h3 id="a-name_skgi2287t9craverificar-la-versión-de-docker"><a></a><strong>Verificar la versión de Docker</strong></h3>
+<pre><code>
+docker version
+
+</code></pre>
+<h1 id="section-7"></h1>
+<h1 id="section-8"></h1>
+<h1 id="a-name_qar28tjq455iacreación-de-una-web-demo-en-docker"><a></a><strong>Creación de una web-demo en Docker</strong></h1>
+<p>creamos un directorio</p>
+<pre><code>
+mkdir docker-web-demo
+
+  
+
+cd docker-web-demo
+
+</code></pre>
+<p>luego crearemos un archivo index.html</p>
+<pre><code>
+&lt;!DOCTYPE html&gt;
+
+  
+
+&lt;html&gt;
+
+  
+
+` `&lt;head&gt;
+
+  
+
+` `&lt;title&gt;Docker Web Demo&lt;/title&gt;
+
+  
+
+` `&lt;/head&gt;
+
+  
+
+` `&lt;body&gt;
+
+  
+
+` `&lt;h1&gt;Insertar aqui&lt;/h1&gt;
+
+  
+
+` `&lt;div&gt;
+
+  
+
+` `&lt;label for="input-text"&gt;Nombre:&lt;/label&gt;
+
+  
+
+` `&lt;input type="text" id="input-text" /&gt;
+
+  
+
+` `&lt;button id="add-button"&gt;Agregar&lt;/button&gt;
+
+  
+
+` `&lt;/div&gt;
+
+  
+
+` `&lt;div id="notifications"&gt;&lt;/div&gt;
+
+  
+
+` `&lt;script&gt;
+
+  
+
+` `const inputText = document.getElementById('input-text');
+
+  
+
+` `const addButton = document.getElementById('add-button');
+
+  
+
+` `const notificationsDiv = document.getElementById('notifications');
+
+  
+
+` `addButton.addEventListener('click', () =&gt; {
+
+  
+
+` `const newText = document.createTextNode(inputText.value);
+
+  
+
+` `const newNotification = document.createElement('p');
+
+  
+
+` `newNotification.appendChild(newText);
+
+  
+
+` `notificationsDiv.appendChild(newNotification);
+
+  
+
+` `inputText.value = ''; // Limpiar el campo de texto
+
+  
+
+` `});
+
+  
+
+` `&lt;/script&gt;
+
+  
+
+` `&lt;/body&gt;
+
+  
+
+&lt;/html&gt;
+
+</code></pre>
+<p>ahora crearemos un Dockerfile en el mismo directorio que index.html, es este se encontrará las instrucciones necesarias para construir una imagen de Docker</p>
+<pre><code>
+\# Usamos una versión de Node.js
+
+  
+
+FROM node:14
+
+  
+
+\# Seteamos el directorio donde trabajara /app
+
+  
+
+WORKDIR /app
+
+  
+
+\# Copiamos el contenido del directorio en /app
+
+  
+
+COPY . /app
+
+  
+
+\# Instalar los paquetes de package.json
+
+  
+
+RUN npm install
+
+  
+
+\# Abrimos el acceso del puerto 80
+
+  
+
+EXPOSE 80
+
+  
+
+\# Ejecutamos la app cuando se levante el contenedor
+
+  
+
+CMD ["npm", "start"]
+
+</code></pre>
+<p>de igual manera crearemos un archivo package.json. Este se encargará de contener todas las dependencias y scripts necesarios para nuestra web-demo</p>
+<pre><code>
+{
+
+  
+
+` `"name": "docker-web-demo",
+
+  
+
+` `"version": "1.0.0",
+
+  
+
+` `"description": "web page demo for Docker",
+
+  
+
+` `"main": "index.html",
+
+  
+
+` `"scripts": {
+
+  
+
+` `"start": "npx serve -s -l 80"
+
+  
+
+` `},
+
+  
+
+` `"dependencies": {
+
+  
+
+` `"serve": "^13.0.2"
+
+  
+
+` `}
+
+  
+
+}
+
+</code></pre>
+<p>construiremos la imagen de Docker y levantaremos el contenedor (insertar primero uno y luego el otro). Una pagina que puede ser util cuando hablamos de contenedores puede ser: <a href="https://hub.docker.com/">https://hub.docker.com/</a></p>
+<pre><code>
+sudo docker build -t docker-web-demo .
+
+</code></pre>
+<pre><code>
+sudo docker run -d -p 80:80 docker-web-demo
+
+</code></pre>
+<p>Una vez hecho todos esto pasos deberíamos ser capaces de acceder a nuestra página web, en ciertas condiciones podemos acceder a este en el navegador web con <code>https://localhost</code> , sin embargo en estos casos que es una máquina virtual sin interfaz gráfica deberemos acceder con <code>https://&lt;ip_de_la_maquina_virtual&gt;</code></p>
+<p><img src="Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.026.png" alt=""></p>
+
+    </div>
+  </div>
+</body>
+
+</html>

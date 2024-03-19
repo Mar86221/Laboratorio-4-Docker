@@ -8,7 +8,7 @@
 # <a name="_ynzxo6dwj93y"></a><a name="_3npbchbhyyco"></a>**Ciclo 01/2024, Laboratorio: Entornos de desarrollo web con Docker.**
 
 ### <a name="_222lste8cqqv"></a>**Catedrática: Elisa Aldana**
-### <a name="_2222ste8qqqv"></a>**Creador: Mario Valencia**
+### **Creador: Mario Valencia**
 
 ### <a name="_87cf60580t2d"></a>**2024, Antiguo Cuscatlan**
 
@@ -263,21 +263,12 @@ click en “Continue”
 Para efectos prácticos, llenaremos este formulario con los siguientes datos
 
   
-
+~~~
 Name: uca
-
-  
-
 server name: uca
-
-  
-
 username: uca
-
-  
-
 password: 12345
-
+~~~
   
 
 ![](Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.019.png)
@@ -339,7 +330,7 @@ ahora ya estamos listos para continuar
 
 ![](Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.025.png)
 
-  # <a name="_d3f1bny3to59"></a>**Uso de Termius**
+# **Uso de Termius**
   
 Si bien el uso de una conexion a nuestra maquina virtual por la cmd de windows es una opcion rapida y comoda, se puede considerar un poco "Obsoleta", para esto existe Termius: es una aplicación de terminal y cliente SSH. Proporciona acceso a SSH, mosh y Telnet para diferentes plataformas, incluidas dispositivos móviles y diferentes sistemas operativos.  [Termius - SSH platform for Mobile and Desktop](https://termius.com/)
 

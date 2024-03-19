@@ -8,6 +8,7 @@
 # <a name="_ynzxo6dwj93y"></a><a name="_3npbchbhyyco"></a>**Ciclo 01/2024, Laboratorio: Entornos de desarrollo web con Docker.**
 
 ### <a name="_222lste8cqqv"></a>**Catedrática: Elisa Aldana**
+### <a name="_2222ste8qqqv"></a>**Creador: Mario Valencia**
 
 ### <a name="_87cf60580t2d"></a>**2024, Antiguo Cuscatlan**
 
@@ -324,7 +325,7 @@ Antes de continuar con la instalación de Docker usaremos la cmd de windows para
 
   
 
-abrimos cmd y escribimos lo siguiente ssh <nombre  de  usuario>@<direccion  IP>
+abrimos cmd y escribimos lo siguiente ssh <nombre_de_usuario>@<direccion_IP>
 
   
 
@@ -338,10 +339,38 @@ ahora ya estamos listos para continuar
 
 ![](Aspose.Words.c119beab-694f-499c-a7d1-ba9bb8873aec.025.png)
 
+  # <a name="_d3f1bny3to59"></a>**Uso de Termius**
   
+Si bien el uso de una conexion a nuestra maquina virtual por la cmd de windows es una opcion rapida y comoda, se puede considerar un poco "Obsoleta", para esto existe Termius: es una aplicación de terminal y cliente SSH. Proporciona acceso a SSH, mosh y Telnet para diferentes plataformas, incluidas dispositivos móviles y diferentes sistemas operativos.  [Termius - SSH platform for Mobile and Desktop](https://termius.com/)
+
+En esa pagina podremos configurar nuestra cuenta y nos pedira que creemos una clave segura esta es muy **importante** para asi que guardenla en algun lugar seguro.
+
+una vez configuramos todo accederemos a la aplicación que ya esta en nuestro escritorio
+
+![](Termius1.jpeg)
+
+al abrirlo este nos mostrara la pagina principal, la que nos importa en este caso es la de "Add your first host"
+
+![](Termius2.jpeg)
+
+ingresamos la ip de nuestra VM
+
+![](Termius3.jpeg)
+
+al darle en "Create host" ahora ya tendremos que dar "Conectar"
+
+![](Termius4.jpeg)
+
+escribimos nuestro usuario de la VM que en este caso es "uca" y luego la password que es "12345" 
   
+  ![](Termius5.jpeg)
   
+  ![](Termius6.jpeg)
+
+y ya tenemos nuestra conexión SSH configurada en Termius y podemos continuar con la guía
+  ![](Termius7.jpeg)
   
+  #
 
 # <a name="_6pc8vy3nzmkz"></a>**Instalación de Docker**
 
